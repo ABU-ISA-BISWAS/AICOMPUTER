@@ -1,8 +1,11 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
-const UserRow = ({user,index,refetch}) => {
-    const {email,role}=user;
+const UserRow = ({userd,index,refetch}) => {
+    const [user] = useAuthState(auth);
+    const {email,role}=userd;
     const makeAdmin =()=>{
         fetch(`http://localhost:5000/user/admin/${email}`,{
         method:'PUT',
@@ -25,9 +28,9 @@ const UserRow = ({user,index,refetch}) => {
     return (
         <tr>
         <th>{index+1}</th>
-        <td>{user.email}</td>
+        <td>{email}</td>
+        <td>{user.displayName}</td>
         <td>{role !== 'admin' && <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}</td>
-        <td><button class="btn btn-xs text-red-600">x</button></td>
       </tr>
     );
 };

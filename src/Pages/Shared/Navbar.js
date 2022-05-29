@@ -12,10 +12,8 @@ const Navbar = () => {
       };
     const menuItems = <>
         <li className='text-white'><Link to="/">Home</Link></li>
-        <li className='text-white'><Link to="/appointment">Appointment</Link></li>
-        <li className='text-white'><Link to="/review">Review</Link></li>
-        <li className='text-white'><Link to="/contact">Contact</Link></li>
-        <li className='text-white'><Link to="/about">About</Link></li>
+        <li className='text-white'><Link to="/blogs">Blogs</Link></li>
+        <li className='text-white'><Link to="/portfolio">My Portfolio</Link></li>
         {
             user && <li className='text-white'><Link to='/dashboard'>DashBoard</Link></li>
         }

@@ -8,21 +8,7 @@ import './AddReview.css';
 const AddReview = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit, reset } = useForm();
-    // const onSubmit = data => {
-
-    //     const url = `http://localhost:5000/reviews`;
-    //     fetch(url, {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(res => res.json())
-
-    //         .then(result => { })
-    //     reset();
-    // };
+  
     const imgStorageKey ='2020a41af86572042a381fac5a0d0d99';
     const onSubmit = async data => {
         const image =data.image[0];
@@ -44,7 +30,7 @@ const AddReview = () => {
                    ratings:data.ratings,
                    img:img
                }
-               //send to your database
+               
                fetch('http://localhost:5000/reviews',{
                    method:'POST',
                    headers:{

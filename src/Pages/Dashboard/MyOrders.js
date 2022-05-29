@@ -74,11 +74,7 @@ const MyOrders = () => {
                                 <td>{order.orderAmount}</td>
 
                                 <td>
-                                    {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} ><button className='btn btn-xs btn-success'>Pay</button></Link>}
-                                    {(order.price && order.paid) && <div>
-                                        <p className='text-success'>Paid</p>
-                                        <p>Transaction Id: <span className='text-success'>{order.transactionId}</span></p>
-                                    </div>}
+                                <button className='btn btn-xs btn-success'>Pay</button>
                                 </td>
                                 <td>
                                     <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" class="btn modal-button btn btn-error btn-xs">Delete</label>

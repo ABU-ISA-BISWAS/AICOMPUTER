@@ -25,13 +25,14 @@ const Users = () => {
       <tr>
         <th></th>
         <th>Email</th>
+        <th>Name</th>
         <th>Make Admin</th>
-        <th>Delete User</th>
+        
       </tr>
     </thead>
     <tbody>
      
-      {users.map((user,index)=><UserRow key={user._id} user={user} index={index} refetch={refetch}></UserRow>)}
+      {users.map((userd,index)=><UserRow key={userd._id} userd={userd} index={index} refetch={refetch}></UserRow>)}
      
     </tbody>
   </table>

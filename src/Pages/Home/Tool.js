@@ -12,8 +12,11 @@ const Tool = ({ tool }) => {
                 <img src={tool.img} alt="Shoes" class="rounded-xl" />
             </figure>
             <div class="card-body items-center text-center">
-                <h2 class="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 class="card-title text-secondary text-xl font-bold">{tool.name}</h2>
+                <p>Price: {tool.price}</p>
+                <p>Quantity: {tool.quantity}</p>
+                <p>Minimum Order Quantity: {tool.minOrderQuantity}</p>
+                <p>{tool.description}</p>
                 <div class="card-actions">
                     <button onClick={()=>navigateToPlaceOrder(tool._id)} class="btn bg-gradient-to-r from-secondary to primary">Buy Now</button>
                 </div>
