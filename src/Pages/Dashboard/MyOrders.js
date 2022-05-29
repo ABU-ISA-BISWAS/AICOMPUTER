@@ -12,7 +12,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     const [cancelOrder, setCancelOrder] = useState(null);
-    const { data: order, isLoading, refetch } = useQuery('order', () => fetch('http://localhost:5000/order', {
+    const { data: order, isLoading, refetch } = useQuery('order', () => fetch('https://sheltered-bayou-65908.herokuapp.com/order', {
         headers: {
 
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -22,7 +22,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?user=${user.email}`, {
+            fetch(`https://sheltered-bayou-65908.herokuapp.com/order?user=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

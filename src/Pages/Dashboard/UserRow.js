@@ -7,7 +7,7 @@ const UserRow = ({userd,index,refetch}) => {
     const [user] = useAuthState(auth);
     const {email,role}=userd;
     const makeAdmin =()=>{
-        fetch(`http://localhost:5000/user/admin/${email}`,{
+        fetch(`https://sheltered-bayou-65908.herokuapp.com/user/admin/${email}`,{
         method:'PUT',
         headers:{
             authorization:`Bearer ${localStorage.getItem('accessToken')}`

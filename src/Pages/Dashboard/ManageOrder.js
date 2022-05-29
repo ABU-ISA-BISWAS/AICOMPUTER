@@ -3,11 +3,11 @@ import { Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import DeleteConfirm from './DeleteConfirm';
-import Orders from './Orders';
+
 
 const ManageOrder = () => {
     const [deleteOrder, setDeleteOrder] = useState(null);
-    const {data:orders,isLoading,refetch}=useQuery('orders',()=>fetch(`http://localhost:5000/order`)
+    const {data:orders,isLoading,refetch}=useQuery('orders',()=>fetch(`https://sheltered-bayou-65908.herokuapp.com/order`)
     .then(res=> res.json()))
 
     if(isLoading){

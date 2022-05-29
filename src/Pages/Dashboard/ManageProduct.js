@@ -8,7 +8,7 @@ import DeleteModal from './DeleteModal';
 
 const ManageProduct = () => {
     const [deleteTool, setDeleteTool] = useState(null);
-    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch(`http://localhost:5000/tools`)
+    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch(`https://sheltered-bayou-65908.herokuapp.com/tools`)
         .then(res => res.json()))
 
     if (isLoading) {

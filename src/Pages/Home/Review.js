@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 
 
 const Review = ({ review }) => {
-    const {data:reviews,isLoading,refetch}=useQuery('reviews',()=>fetch(`http://localhost:5000/reviews`)
+    const {data:reviews,isLoading,refetch}=useQuery('reviews',()=>fetch(`https://sheltered-bayou-65908.herokuapp.com/reviews`)
     .then(res=> res.json()))
 
     if(isLoading){

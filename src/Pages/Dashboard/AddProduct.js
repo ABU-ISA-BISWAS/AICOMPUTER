@@ -32,7 +32,7 @@ const AddProduct = () => {
                        img:img
                    }
                    
-                   fetch('http://localhost:5000/tools',{
+                   fetch('https://sheltered-bayou-65908.herokuapp.com/tools',{
                        method:'POST',
                        headers:{
                            'content-type':'application/json',

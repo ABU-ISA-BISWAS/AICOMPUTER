@@ -31,7 +31,7 @@ const AddReview = () => {
                    img:img
                }
                
-               fetch('http://localhost:5000/reviews',{
+               fetch('https://sheltered-bayou-65908.herokuapp.com/reviews',{
                    method:'POST',
                    headers:{
                        'content-type':'application/json',
