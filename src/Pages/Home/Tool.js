@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Tool = ({ tool }) => {
+    const navigate=useNavigate();
+    const navigateToPlaceOrder=id=>{
+        navigate(`/purchase/${id}`)
+    }
     return (
         <div class="card w-96 bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
@@ -10,7 +15,7 @@ const Tool = ({ tool }) => {
                 <h2 class="card-title">Shoes!</h2>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
                 <div class="card-actions">
-                    <button class="btn bg-gradient-to-r from-secondary to primary">Buy Now</button>
+                    <button onClick={()=>navigateToPlaceOrder(tool._id)} class="btn bg-gradient-to-r from-secondary to primary">Buy Now</button>
                 </div>
             </div>
         </div>

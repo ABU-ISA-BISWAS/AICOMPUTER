@@ -29,6 +29,10 @@ const Login = () => {
             navigate(from,{replace:true}); 
          }
       },[token,from,navigate])
+
+    // if(user){
+    //     navigate(from,{replace:true});
+    // }
     
     if(loading || gLoading ||sending){
         return <Loading></Loading>

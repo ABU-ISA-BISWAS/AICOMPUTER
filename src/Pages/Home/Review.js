@@ -1,34 +1,16 @@
 import React from 'react';
-import henry from '../../assets/images/henry-nicholls.png';
-import blundell from '../../assets/images/tom-blundell.png';
-import latham from '../../assets/images/tom-latham.png';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
+
 
 const Review = ({ review }) => {
-    const reviews = [
-        {
-            _id: 1,
-            name: 'Tom Latham',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
-            location: 'Stockhome',
-            img: latham
-        },
+    const {data:reviews,isLoading,refetch}=useQuery('reviews',()=>fetch(`http://localhost:5000/reviews`)
+    .then(res=> res.json()))
 
-        {
-            _id: 2,
-            name: 'Tom Blundell',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
-            location: 'Stockhome',
-            img: blundell
-        },
-
-        {
-            _id: 3,
-            name: 'Henry Nicholls ',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
-            location: 'Stockhome',
-            img: henry
-        }
-    ];
+    if(isLoading){
+        return <Loading></Loading>
+    }
+  
     return (
         <section>
             <h1 className='font-serif text-4xl text-secondary font-bold'>What Our Customer Say</h1>

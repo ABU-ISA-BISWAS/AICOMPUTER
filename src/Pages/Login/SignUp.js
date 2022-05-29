@@ -19,7 +19,7 @@ const SignUp = () => {
       const [token]= useToken(user || gUser);
       const navigate =useNavigate();
     if (token) {
-        navigate('/appointment');
+        navigate('/dashboard');
     }
     if(loading || gLoading ||updating){
         return <Loading></Loading>
@@ -33,7 +33,7 @@ const SignUp = () => {
         console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName:data.name });
-        navigate('/appointment');
+        navigate('/dashboard');
 
     };
 

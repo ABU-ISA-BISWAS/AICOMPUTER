@@ -16,14 +16,17 @@ const Navbar = () => {
         <li className='text-white'><Link to="/review">Review</Link></li>
         <li className='text-white'><Link to="/contact">Contact</Link></li>
         <li className='text-white'><Link to="/about">About</Link></li>
-        
         {
-            user && <li><Link to='/dashboard'>DashBoard</Link></li>
+            user && <li className='text-white'><Link to='/dashboard'>DashBoard</Link></li>
         }
-        <li className='text-white'>{user?<button onClick={logout} class="btn btn-active btn-ghost">SignOut</button>: <Link to="/login">Login</Link>}</li>
+        {
+            user && <li className='mt-2 mx-2 uppercase text-xl font-bold text-green-200'>{user.displayName}</li>
+        }
+        
+        <li className='text-white'>{user?<button onClick={logout} class="btn text-red-900 btn-ghost">SignOut</button>: <Link to="/login">Login</Link>}</li>
     </>
     return (
-        <div className="navbar font-serif bg-blue-500">
+        <div className="navbar font-serif bg-blue-400">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabindex="0" className="btn btn-ghost lg:hidden">
@@ -33,7 +36,7 @@ const Navbar = () => {
                     {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-2xl text-green-200 ">COMPUTER POINT</a>
+                <a className="btn btn-ghost normal-case text-2xl text-green-900 ">COMPUTER POINT</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
