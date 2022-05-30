@@ -12,7 +12,7 @@ const Review = ({ review }) => {
     }
   
     return (
-        <section className='w-10/12 mx-auto'>
+        <section className='w-11/12 mx-auto'>
             <h1 className='font-serif text-4xl text-secondary font-bold'>What Our Customer Say</h1>
             <div className='font-serif grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
@@ -20,7 +20,7 @@ const Review = ({ review }) => {
                     <div className="card-body">
                         
                         <p>{review.review}</p>
-                        <div className="flex items-center">
+                        <div className="flex items-center ">
                             <div className="avatar">
                                 <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 mr-5">
                                     <img src={review.img} alt="" />

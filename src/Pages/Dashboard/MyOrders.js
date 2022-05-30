@@ -22,6 +22,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
+            
             fetch(`http://localhost:5000/order?user=${user.email}`, {
                 method: 'GET',
                 headers: {

@@ -8,9 +8,9 @@ const Tool = ({ tool }) => {
     }
     return (
         
-        <div class="mx-auto card w-72 bg-base-100 shadow-xl border-solid border-cyan-200  rounded-md border-2">
+        <div class="font-serif mx-auto font-thin card w-72  bg-base-100 shadow-xl border-solid border-cyan-100  rounded-md border-2">
             <figure class="">
-                <img className='h-36 w-72' src={tool.img} alt="Shoes" class="rounded-xl" />
+                <img className='h-32 w-72' src={tool.img} alt="Shoes" class="rounded-xl" />
             </figure>
             <div class="card-body items-center text-center">
                 <h2 class="card-title text-secondary text-xl font-bold">{tool.name}</h2>

@@ -6,7 +6,7 @@ const HomeReview = () => {
     return (
       
         
-        <div class="card w-96 mx-auto py-5 bg-base-100 shadow-xl image-full">
+        <div class="card w-96 mx-auto py-5 my-5 bg-base-100 shadow-xl image-full">
             <figure><img src={cm} alt="Shoes" /></figure>
             <div class="card-body">
                
