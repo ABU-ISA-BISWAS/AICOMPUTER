@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import Tool from './Tool';
 
 const Tools = () => {
-    const {data:tools,isLoading,refetch}=useQuery('tools',()=>fetch(`https://sheltered-bayou-65908.herokuapp.com/tools`)
+    const {data:tools,isLoading,refetch}=useQuery('tools',()=>fetch(`http://localhost:5000/tools`)
     .then(res=> res.json()))
 
     if(isLoading){

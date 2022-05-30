@@ -12,7 +12,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     const [cancelOrder, setCancelOrder] = useState(null);
-    const { data: order, isLoading, refetch } = useQuery('order', () => fetch('https://sheltered-bayou-65908.herokuapp.com/order', {
+    const { data: order, isLoading, refetch } = useQuery('order', () => fetch('http://localhost:5000/order', {
         headers: {
 
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -22,7 +22,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://sheltered-bayou-65908.herokuapp.com/order?user=${user.email}`, {
+            fetch(`http://localhost:5000/order?user=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -73,9 +73,18 @@ const MyOrders = () => {
                                 <td>{order.price}</td>
                                 <td>{order.orderAmount}</td>
 
-                                <td>
+                                {/* <td>
                                 <button className='btn btn-xs btn-success'>Pay</button>
-                                </td>
+                                </td> */}
+
+<td>
+              {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} ><button className='btn btn-xs btn-success'>Pay</button></Link>}
+              {(order.price && order.paid) &&   <div>
+                  <p className='text-success'>Paid</p>
+                  <p>Transaction Id: <span className='text-success'>{order.transactionId}</span></p>
+                </div>}
+            </td>
+
                                 <td>
                                     <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" class="btn modal-button btn btn-error btn-xs">Delete</label>
                                 </td>

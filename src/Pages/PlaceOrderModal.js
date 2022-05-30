@@ -11,7 +11,7 @@ const PlaceOrderModal = ({ order, setOrder }) => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
     
-        fetch('https://sheltered-bayou-65908.herokuapp.com/order', {
+        fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

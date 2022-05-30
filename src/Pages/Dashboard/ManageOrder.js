@@ -7,7 +7,7 @@ import DeleteConfirm from './DeleteConfirm';
 
 const ManageOrder = () => {
     const [deleteOrder, setDeleteOrder] = useState(null);
-    const {data:orders,isLoading,refetch}=useQuery('orders',()=>fetch(`https://sheltered-bayou-65908.herokuapp.com/order`)
+    const {data:orders,isLoading,refetch}=useQuery('orders',()=>fetch(`http://localhost:5000/order`)
     .then(res=> res.json()))
 
     if(isLoading){

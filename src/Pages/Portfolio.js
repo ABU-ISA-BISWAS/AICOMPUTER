@@ -15,6 +15,7 @@ const Portfolio = () => {
                 <li>React</li>
                 <li>MongoDB</li>
                 <li>Node Js</li>
+                <li className='text-xl font-bold text-secondary'><a href="https://computer-point-7ec78.web.app/">Live link of this project</a></li>
                 </ul></p>
         </div>
     );
