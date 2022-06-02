@@ -38,8 +38,8 @@ const SignUp = () => {
     };
 
     return (
-        <div className='flex h-screen justify-center items-center'>
-        <div class="card w-96 bg-base-100 shadow-xl">
+        <div className='bg-slate-800 flex h-screen justify-center font-serif items-center'>
+        <div class="card w-96 bg-base-100 m-5 shadow-xl">
             <div class="card-body">
                 <h2 class="text-center text-3xl font-bold text-primary">Sign Up</h2>
 
@@ -123,7 +123,7 @@ const SignUp = () => {
                         {signUpError}
                     <input className='btn w-full text-white font-bold bg-primary max-w-xs mb-5' type="submit" value="SignUp" />
                 </form>
-                <p>Already have an account? <Link className='text-primary' to="/login">Please Login</Link></p>
+                <p>Already have an account? <Link className='text-secondary' to="/login">Please Login</Link></p>
 
                 <div class="divider">OR</div>
                 <button onClick={() => signInWithGoogle()}

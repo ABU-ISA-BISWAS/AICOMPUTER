@@ -31,7 +31,7 @@ const AddReview = () => {
                    img:img
                }
                
-               fetch('http://localhost:5000/reviews',{
+               fetch('https://sheltered-bayou-65908.herokuapp.com/reviews',{
                    method:'POST',
                    headers:{
                        'content-type':'application/json',
@@ -58,10 +58,10 @@ const AddReview = () => {
     return (
         <div className='addReviewContainer'>
             <div className=' mx-auto addReviewForm'>
-                <p className='fw-bold fs-4 text-secondary text-xl font-bold mt-5'>ADD YOUR REVIEW</p>
+                <p className='fw-bold fs-4 text-secondary text-xl font-bold m-5'>ADD YOUR REVIEW</p>
                 <form className='d-flex flex-column animate__animated animate__zoomIn' onSubmit={handleSubmit(onSubmit)}>
                     <input className='mb-3' placeholder='Name' {...register("name", { required: true, maxLength: 10 })} />
-                    <textarea className='mb-3' placeholder='Your review' {...register("review")} />
+                    <input className='mb-3' placeholder='Your review' {...register("review")} />
                     <input className='mb-3' placeholder='ratings' type="number" {...register("ratings")} />
                     <input className='mb-3' placeholder='location' type="text" {...register("location")} />
                     <input  {...register("image", {
@@ -71,7 +71,7 @@ const AddReview = () => {
                         },
 
                     })}
-                        type="file" class="input input-bordered w-full max-w-xs" />
+                        type="file" class="btn-sm btn-primary btn max-w-xs p-1 w-56" />
                     <input className='mx-auto w-50' id='submit' type="submit" value="Add Review" />
                 </form>
             </div>

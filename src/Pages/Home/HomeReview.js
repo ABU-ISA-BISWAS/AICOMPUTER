@@ -6,8 +6,8 @@ const HomeReview = () => {
     return (
       
         
-        <div class="card w-96 mx-auto py-5 my-5 bg-base-100 shadow-xl image-full">
-            <figure><img src={cm} alt="Shoes" /></figure>
+        <div class="card w-72 lg:w-96 mx-auto my-10 bg-base-100 shadow-xl image-full">
+            <figure className='w-72 lg:w-96'><img src={cm} alt="Shoes" /></figure>
             <div class="card-body">
                
                 <p className='text-2xl font-semibold font-serif'>Please Add a Review</p>

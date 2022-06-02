@@ -5,7 +5,7 @@ const DeleteConfirm = ({ deleteOrder, refetch, setDeleteOrder }) => {
     const { tool, _id } = deleteOrder;
     const handleDelete = (id) => {
 
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://sheltered-bayou-65908.herokuapp.com/order/${id}`, {
             method: 'DELETE',
             headers: {
 

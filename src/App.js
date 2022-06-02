@@ -23,7 +23,7 @@ import Navbar from './Pages/Shared/Navbar';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-slate-100">
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
@@ -33,10 +33,10 @@ function App() {
 
         
         <Route path='/dashboard' element={<RequireAuth><DashBoard></DashBoard></RequireAuth>}>
-          <Route index ></Route>
+          <Route index element={<MyProfile></MyProfile>} ></Route>
           <Route path='review' element={<AddReview></AddReview>}></Route>
           <Route path='myOrder' element={<MyOrders></MyOrders>}></Route>        
-          <Route path='profile' element={<MyProfile></MyProfile>}></Route>
+          {/* <Route path='profile' element={<MyProfile></MyProfile>}></Route> */}
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path='allUsers' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>

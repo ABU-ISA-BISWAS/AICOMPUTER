@@ -3,9 +3,9 @@ import { toast } from 'react-toastify';
 
 const DeleteConfirmModal = ({ cancelOrder, refetch, setCancelOrder }) => {
     const { tool, _id } = cancelOrder;
-    const handleDelete = (tool, id) => {
+    const handleDelete = ( id) => {
 
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://sheltered-bayou-65908.herokuapp.com/order/${id}`, {
             method: 'DELETE',
             headers: {
 
@@ -16,18 +16,16 @@ const DeleteConfirmModal = ({ cancelOrder, refetch, setCancelOrder }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount) {
-                    toast.success(`This Order has canceled.`)
+                    toast.success(`This Order has canceled.`);
                     setCancelOrder(null);
                     refetch();
                 }
+              
             })
     }
+
     return (
         <div>
-
-
-
-
             <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
@@ -35,7 +33,7 @@ const DeleteConfirmModal = ({ cancelOrder, refetch, setCancelOrder }) => {
 
                     <div class="modal-action">
                         <label for="delete-confirm-modal" class="btn btn-xs">Cancel</label>
-                        <button onClick={() => handleDelete(cancelOrder.tool, _id
+                        <button onClick={() => handleDelete( _id
                         )} class="btn btn-error btn-xs">Delete</button>
                     </div>
                 </div>

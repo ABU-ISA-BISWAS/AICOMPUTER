@@ -8,7 +8,7 @@ import DeleteModal from './DeleteModal';
 
 const ManageProduct = () => {
     const [deleteTool, setDeleteTool] = useState(null);
-    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch(`http://localhost:5000/tools`)
+    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch(`https://sheltered-bayou-65908.herokuapp.com/tools`)
         .then(res => res.json()))
 
     if (isLoading) {
@@ -19,17 +19,15 @@ const ManageProduct = () => {
     return (
         <div>
             <p className='text-secondary font-bold text-2xl my-5'>{tools.length} Product Available</p>
-            <div className='w-6/12  mx-auto'>
+            <div className='lg:w-6/12 w-11/12 overflow-x-auto  mx-auto'>
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
-                            <th>N</th>
+                            <th></th>
                             <th>Photo</th>
                             <th>Product Nmae</th>
                             <th>Price</th>
                             <th>Quantity</th>
-
-
                             <th>Delete</th>
                         </tr>
                     </thead>

@@ -11,7 +11,7 @@ const CheckoutForm = ({order}) => {
     const [transactionId,setTransactionId]=useState('');
     const [clientSecret,setClientSecret] = useState('');
     useEffect(()=>{
-        fetch('http://localhost:5000/create-payment-intent',{
+        fetch('https://sheltered-bayou-65908.herokuapp.com/create-payment-intent',{
             method:'POST',
             headers:{
                 'content-type':'application/json',
@@ -73,7 +73,7 @@ const CheckoutForm = ({order}) => {
                       appointment:_id,
                       transactionId: paymentIntent.id
                   }
-                  fetch(`http://localhost:5000/order/${_id}`,{
+                  fetch(`https://sheltered-bayou-65908.herokuapp.com/order/${_id}`,{
                       method:'PATCH',
                       headers:{
                         'content-type':'application/json',

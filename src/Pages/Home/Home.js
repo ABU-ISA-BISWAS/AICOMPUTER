@@ -6,10 +6,11 @@ import HomeLogin from './HomeLogin';
 import HomeReview from './HomeReview';
 import Review from './Review';
 import Tools from './Tools';
+import './Home.css';
 
 const Home = () => {
     return (
-        <div>
+        <div className='home '>
             <Banner></Banner>
             <Tools></Tools>
             <Review></Review>

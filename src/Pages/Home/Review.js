@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 
 
 const Review = ({ review }) => {
-    const {data:reviews,isLoading,refetch}=useQuery('reviews',()=>fetch(`http://localhost:5000/reviews`)
+    const {data:reviews,isLoading,refetch}=useQuery('reviews',()=>fetch(`https://sheltered-bayou-65908.herokuapp.com/reviews`)
     .then(res=> res.json()))
 
     if(isLoading){
@@ -13,10 +13,10 @@ const Review = ({ review }) => {
   
     return (
         <section className='w-11/12 mx-auto'>
-            <h1 className='font-serif text-4xl text-secondary font-bold'>What Our Customer Say</h1>
-            <div className='font-serif grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+            <h1 className='my-5 font-serif text-4xl text-secondary font-bold'>What Our Customer Say</h1>
+            <div className=' font-serif grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    reviews.map(review => <div className="card w-96 bg-base-100 shadow-xl">
+                    reviews.map(review => <div className="card w-68 mx-auto lg:w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
                         
                         <p>{review.review}</p>

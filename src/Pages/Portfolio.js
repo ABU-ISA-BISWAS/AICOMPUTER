@@ -2,11 +2,15 @@ import React from 'react';
 
 const Portfolio = () => {
     return (
-        <div className='text-left w-6/12 mx-auto my-5'>
-            <h1 className='text-3xl font-bold text-secondary'>Name: ABU ISA</h1>
-            <p className='text-primary'>Email: bmabuisa.cse@gmail.com</p>
-            <p className='text-primary'>Education: B.Sc. in CSE</p>
-            <p className='text-primary'>Skills <ul>
+       
+
+
+         <div class="m-5 mockup-window border font-serif bg-slate-800 ">
+         <div class=" text-justify px-4 py-16 bg-slate-500 text-white">
+         <h1 className='lg:text-3xl text-2xl text-green-500 font-bold'>Name: ABU ISA</h1>
+            <p className=''>Email: bmabuisa.cse@gmail.com</p>
+            <p className=''>Education: B.Sc. in CSE</p>
+            <p className=''>Skills <ul>
                 <li>HTML</li>
                 <li>CSS</li>
                 <li>C</li>
@@ -15,9 +19,10 @@ const Portfolio = () => {
                 <li>React</li>
                 <li>MongoDB</li>
                 <li>Node Js</li>
-                <li className='text-xl font-bold text-secondary'><a href="https://computer-point-7ec78.web.app/">Live link of this project</a></li>
+                <li className='text-xl font-bold '><a href="https://computer-point-7ec78.web.app/">Live link of this project</a></li>
                 </ul></p>
-        </div>
+         </div>
+       </div>
     );
 };
 

@@ -59,9 +59,9 @@ const Login = () => {
     }
    
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div className='bg-slate-800 font-serif flex  h-screen justify-center items-center'>
             
-            <div class="card w-96 bg-base-100 shadow-xl">
+            <div class="card w-96 m-5 bg-base-100 shadow-xl">
                 <div class="card-body">
                     <h2 class="text-center text-3xl font-bold text-primary">Login</h2>
 
@@ -129,7 +129,7 @@ const Login = () => {
                         <p>Forgotten password? <button onClick={resetPassword} className="text-red-500">Reset Password</button></p>
                     </form>
                     
-                    <p>New to Computer Point? <Link className='text-primary' to="/signup">Create new account</Link></p>
+                    <p>New to Computer Point? <Link className='text-secondary' to="/signup">Create new account</Link></p>
 
                     <div class="divider">OR</div>
                     <button onClick={() => signInWithGoogle()}

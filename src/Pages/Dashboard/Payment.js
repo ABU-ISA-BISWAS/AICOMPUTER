@@ -11,7 +11,7 @@ import { Elements } from '@stripe/react-stripe-js';
 const stripePromise = loadStripe('pk_test_51L3wRuDyuXL0kAMD3cphavXLnw1gEqOUigSPpw6ZD6JG6Hy9zaKWenWK6gDsLc9uEyaPaikbDsO412aTUvdIJayU00Leok4N8P');
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://sheltered-bayou-65908.herokuapp.com/order/${id}`;
     const { data: order, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',
         headers: {

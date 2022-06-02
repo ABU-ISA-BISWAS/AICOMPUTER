@@ -7,7 +7,7 @@ import DeleteConfirm from './DeleteConfirm';
 
 const ManageOrder = () => {
     const [deleteOrder, setDeleteOrder] = useState(null);
-    const {data:orders,isLoading,refetch}=useQuery('orders',()=>fetch(`http://localhost:5000/order`)
+    const {data:orders,isLoading,refetch}=useQuery('orders',()=>fetch(`https://sheltered-bayou-65908.herokuapp.com/order`)
     .then(res=> res.json()))
 
     if(isLoading){
@@ -18,7 +18,7 @@ const ManageOrder = () => {
     return (
         <div>
             <p className='text-secondary font-bold text-2xl my-5'>{orders.length} Orders</p>
-            <div className='data-table mx-auto'>
+            <div className='data-table w-11/12 lg:w-10/12 mx-auto overflow-x-auto'>
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
@@ -29,7 +29,7 @@ const ManageOrder = () => {
                             <th>Phone</th>
                             <th>Address</th>
                             
-                            <th>Delete or Update</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>

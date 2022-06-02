@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import 'animate.css';
 
 const AddProduct = () => {
    
@@ -32,7 +33,7 @@ const AddProduct = () => {
                        img:img
                    }
                    
-                   fetch('http://localhost:5000/tools',{
+                   fetch('https://sheltered-bayou-65908.herokuapp.com/tools',{
                        method:'POST',
                        headers:{
                            'content-type':'application/json',
@@ -58,15 +59,15 @@ const AddProduct = () => {
     
         };
         return (
-            <div className='addReviewContainer'>
-                <div className=' mx-auto addReviewForm'>
-                    <p className='fw-bold fs-4 text-secondary text-xl font-bold mt-5'>ADD A PRODUCT</p>
+            <div className='addReviewContainer '>
+                <div className=' mx-auto addReviewForm '>
+                    <p className='  fw-bold fs-4 text-secondary text-xl font-bold m-5 '>ADD A PRODUCT</p>
                     <form className='d-flex flex-column animate__animated animate__zoomIn' onSubmit={handleSubmit(onSubmit)}>
                         <input className='mb-3' placeholder='Product Name' {...register("name", { required: true, maxLength: 10 })} />
                         <input className='mb-3' placeholder='Price' type="number" {...register("price")} />
                         <input className='mb-3' placeholder='Minimum Order Quantity' type="number" {...register("minOrderQuantity")} />
                         <input className='mb-3' placeholder='Quantity' type="number" {...register("quantity")} />
-                        <textarea className='mb-3' placeholder='Description' {...register("description")} />
+                        <input className='mb-3' placeholder='Description' {...register("description")} />
                         <input  {...register("img", {
                             required: {
                                 value: true,
@@ -74,8 +75,8 @@ const AddProduct = () => {
                             },
     
                         })}
-                            type="file" class="input input-bordered w-full max-w-xs" />
-                        <input className='mx-auto w-50' id='submit' type="submit" value="Add Product" />
+                            type="file" class="btn-sm btn-primary btn max-w-xs p-1 w-56" />
+                        <input className='mx-auto bg-gradient-to-r from-secondary to primary' id='submit' type="submit" value="Add Product" />
                     </form>
                 </div>
             </div>

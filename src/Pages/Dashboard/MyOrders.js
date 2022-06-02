@@ -12,7 +12,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     const [cancelOrder, setCancelOrder] = useState(null);
-    const { data: order, isLoading, refetch } = useQuery('order', () => fetch('http://localhost:5000/order', {
+    const { data: order, isLoading, refetch } = useQuery('order', () => fetch('https://sheltered-bayou-65908.herokuapp.com/order', {
         headers: {
 
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -22,8 +22,8 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            
-            fetch(`http://localhost:5000/order?user=${user.email}`, {
+
+            fetch(`https://sheltered-bayou-65908.herokuapp.com/order?user=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -51,40 +51,38 @@ const MyOrders = () => {
 
 
     return (
-        <div>
+        <div className=''>
             <p className='my-5 text-2xl text-primary font-semibold font-serif'>My Order:  {orders.length} </p>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
-                   
+            <div class="overflow-x-auto ">
+                <table class="table mx-auto ">
+
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Payment</th>
-                            <th>Delete</th>
+                        <th className='bg-slate-800 text-white text-2xs'>N</th>
+                            <th className='bg-slate-800 text-white text-2xs'>P.Name</th>
+                            
+                            <th className='bg-slate-800 text-white text-2xs'>Quantity</th>
+                            <th className='bg-slate-800 text-white text-2xs'>Payment</th>
+                            <th className='bg-slate-800 text-white text-2xs'>Cancel</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className=''>
                         {
                             orders.map((order, index) => <tr key={order._id}>
-                                <th>{index + 1}</th>
+                                 <td>{index+1}</td>
                                 <td>{order.productName}</td>
-                                <td>{order.price}</td>
+                                
                                 <td>{order.orderAmount}</td>
 
-                                {/* <td>
-                                <button className='btn btn-xs btn-success'>Pay</button>
-                                </td> */}
+                                
 
-<td>
-              {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} ><button className='btn btn-xs btn-success'>Pay</button></Link>}
-              {(order.price && order.paid) &&   <div>
-                  <p className='text-success'>Paid</p>
-                  <p>Transaction Id: <span className='text-success'>{order.transactionId}</span></p>
-                </div>}
-            </td>
+                                <td>
+                                    {(order.orderAmount && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} ><button className='btn btn-xs btn-success'>Pay</button></Link>}
+                                    {(order.orderAmount && order.paid) && <div>
+                                        <p className='text-success'>Paid</p>
+                                        {/* <p>Transaction Id: <span className='text-success'>{order.transactionId}</span></p> */}
+                                    </div>}
+                                </td>
 
                                 <td>
                                     <label onClick={() => setCancelOrder(order)} for="delete-confirm-modal" class="btn modal-button btn btn-error btn-xs">Delete</label>
