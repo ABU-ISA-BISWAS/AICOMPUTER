@@ -1,8 +1,15 @@
-import React from 'react';
+import axios from 'axios';
+import { signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const DeleteConfirmModal = ({ cancelOrder, refetch, setCancelOrder }) => {
     const { tool, _id } = cancelOrder;
+   
     const handleDelete = ( id) => {
 
         fetch(`https://sheltered-bayou-65908.herokuapp.com/order/${id}`, {
@@ -15,7 +22,7 @@ const DeleteConfirmModal = ({ cancelOrder, refetch, setCancelOrder }) => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.deletedCount) {
+                if (data.deletedCount > 0) {
                     toast.success(`This Order has canceled.`);
                     setCancelOrder(null);
                     refetch();

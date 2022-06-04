@@ -38,8 +38,8 @@ const SignUp = () => {
     };
 
     return (
-        <div className='bg-slate-800 flex h-screen justify-center font-serif items-center'>
-        <div class="card w-96 bg-base-100 m-5 shadow-xl">
+        <div className=' flex h-screen justify-center font-serif items-center'>
+        <div class="card w-96 bg-base-100 m-5 shadow-xl animate__animated animate__zoomIn">
             <div class="card-body">
                 <h2 class="text-center text-3xl font-bold text-primary">Sign Up</h2>
 
@@ -47,7 +47,7 @@ const SignUp = () => {
 
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
-                            <span class="label-text">Name</span>
+                            <span class="label-text text-secondary">Name</span>
                         </label>
 
                         <input  {...register("name", {
@@ -69,7 +69,7 @@ const SignUp = () => {
 
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
-                            <span class="label-text">Email</span>
+                            <span class="label-text text-secondary">Email</span>
                         </label>
 
                         <input  {...register("email", {
@@ -95,7 +95,7 @@ const SignUp = () => {
 
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
-                            <span class="label-text">Password</span>
+                            <span class="label-text text-secondary">Password</span>
                         </label>
 
                         <input  {...register("password", {
@@ -121,13 +121,13 @@ const SignUp = () => {
                     
 
                         {signUpError}
-                    <input className='btn w-full text-white font-bold bg-primary max-w-xs mb-5' type="submit" value="SignUp" />
+                    <input className='btn btn-sm w-full text-white font-bold bg-primary max-w-xs mb-5' type="submit" value="SignUp" />
                 </form>
                 <p>Already have an account? <Link className='text-secondary' to="/login">Please Login</Link></p>
 
                 <div class="divider">OR</div>
                 <button onClick={() => signInWithGoogle()}
-                    class="btn btn-outline btn-primary">Continue With Google</button>
+                    class="btn btn-sm btn-outline btn-primary">Continue With Google</button>
             </div>
         </div>
     </div>

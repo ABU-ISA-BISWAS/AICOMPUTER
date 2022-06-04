@@ -22,13 +22,13 @@ const Login = () => {
       );
       const [token]= useToken(user || gUser);
       const navigate =useNavigate();
-      const location =useLocation();
-      let from =location.state?.from?.pathname || "/";
-      useEffect(()=>{
+    //   const location =useLocation();
+    //   let from =location.state?.from?.pathname || "/";
+     
         if (token) {
-            navigate(from,{replace:true}); 
+            navigate('/dashboard'); 
          }
-      },[token,from,navigate])
+     
 
     
     if(loading || gLoading ||sending){
@@ -40,13 +40,13 @@ const Login = () => {
     }
 
     const onSubmit = data => {
-        console.log(data);
+        
         signInWithEmailAndPassword(data.email, data.password);    
 
     };
     const resetPassword = async () => {
         const email = getValues("email");
-        console.log(email);
+        
       
         if (email) {
             await sendPasswordResetEmail(email);
@@ -59,9 +59,9 @@ const Login = () => {
     }
    
     return (
-        <div className='bg-slate-800 font-serif flex  h-screen justify-center items-center'>
+        <div className=' font-serif flex  h-screen justify-center items-center'>
             
-            <div class="card w-96 m-5 bg-base-100 shadow-xl">
+            <div class="card w-96 m-5 bg-base-100 shadow-xl animate__animated animate__zoomIn">
                 <div class="card-body">
                     <h2 class="text-center text-3xl font-bold text-primary">Login</h2>
 
@@ -125,7 +125,7 @@ const Login = () => {
                         
 
                             {signInError}
-                        <input className='btn w-full text-white font-bold bg-primary max-w-xs mb-5' type="submit" value="Login" />
+                        <input className='btn btn-sm w-full text-white font-bold bg-primary max-w-xs mb-5' type="submit" value="Login" />
                         <p>Forgotten password? <button onClick={resetPassword} className="text-red-500">Reset Password</button></p>
                     </form>
                     
@@ -133,7 +133,7 @@ const Login = () => {
 
                     <div class="divider">OR</div>
                     <button onClick={() => signInWithGoogle()}
-                        class="btn btn-outline btn-primary">Continue With Google</button>
+                        class="btn btn-sm btn-outline btn-primary">Continue With Google</button>
                 </div>
                 <ToastContainer></ToastContainer>
             </div>

@@ -21,9 +21,10 @@ import Portfolio from './Pages/Portfolio';
 import Purchase from './Pages/Purchase';
 import Navbar from './Pages/Shared/Navbar';
 
+
 function App() {
   return (
-    <div className="App bg-slate-100">
+    <div className="App bg-slate-100 ">
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

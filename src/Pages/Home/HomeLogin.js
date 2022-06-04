@@ -8,7 +8,7 @@ import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
 
 const HomeLogin = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  
     const { register, formState: { errors }, handleSubmit, getValues } = useForm();
     const [
         signInWithEmailAndPassword,
@@ -19,7 +19,7 @@ const HomeLogin = () => {
     const [sendPasswordResetEmail, sending, passResetError] = useSendPasswordResetEmail(
         auth
     );
-    const [token] = useToken(user || gUser);
+    const [token] = useToken(user);
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -33,12 +33,12 @@ const HomeLogin = () => {
     //     navigate(from,{replace:true});
     // }
 
-    if (loading || gLoading || sending) {
+    if (loading || sending) {
         return <Loading></Loading>
     }
     let signInError;
-    if (error || gError || passResetError) {
-        signInError = <p className='text-red-500'>{error?.message || gError?.message}</p>
+    if (error  || passResetError) {
+        signInError = <p className='text-red-500'>{error?.message }</p>
     }
 
     const onSubmit = data => {
@@ -61,11 +61,11 @@ const HomeLogin = () => {
     }
 
     return (
-        <div className='animate__animated animate__zoomIn font-serif flex  h-screen justify-center items-center'>
+        <div className=' font-serif flex  h-screen justify-center items-center'>
             
-        <div class="card w-80 lg:w-96 m-5 bg-base-100 shadow-xl">
+        <div class="card w-72 lg:w-80 m-5 bg-base-100 shadow-xl animate__animated animate__zoomIn">
             <div class="card-body">
-                <h2 class="text-center text-3xl font-bold text-primary">Login</h2>
+                <h2 class="text-left text-3xl font-bold text-primary">Please Login</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} >
 
@@ -127,15 +127,12 @@ const HomeLogin = () => {
                     
 
                         {signInError}
-                    <input className='btn w-full text-white font-bold bg-primary max-w-xs mb-5' type="submit" value="Login" />
+                    <input className='btn btn-sm w-full text-white font-bold bg-primary max-w-xs mb-5' type="submit" value="Login" />
                     <p>Forgotten password? <button onClick={resetPassword} className="text-red-500">Reset Password</button></p>
                 </form>
                 
                 <p>New to Computer Point? <Link className='text-secondary' to="/signup">Create new account</Link></p>
 
-                <div class="divider">OR</div>
-                <button onClick={() => signInWithGoogle()}
-                    class="btn btn-outline btn-primary">Continue With Google</button>
             </div>
             <ToastContainer></ToastContainer>
         </div>

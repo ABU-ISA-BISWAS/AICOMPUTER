@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import Tool from './Tool';
+import './tools.css';
 
 const Tools = () => {
     const {data:tools,isLoading,refetch}=useQuery('tools',()=>fetch(`https://sheltered-bayou-65908.herokuapp.com/tools`)
@@ -11,7 +12,7 @@ const Tools = () => {
         return <Loading></Loading>
     }
     return (
-        <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10 px-10'>
+        <div className='tools grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10 px-10'>
             
             {
                 tools.map(tool=><Tool
