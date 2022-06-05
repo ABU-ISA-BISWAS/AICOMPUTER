@@ -86,7 +86,7 @@ const Login = () => {
                                     message: 'Provide a Valid Email'
                                 }
                             })}
-                                type="email" placeholder="Your Email" class="input input-sm input-bordered w-full max-w-xs" />
+                                type="email" placeholder="Your Email" class="input bg-slate-200 input-sm input-bordered w-full max-w-xs" />
 
 
                             <label class="label">
@@ -112,7 +112,7 @@ const Login = () => {
                                     message: 'Must be 6 characters or longer'
                                 }
                             })}
-                                type="password" placeholder="Password" class="input input-sm input-bordered w-full max-w-xs" />
+                                type="password" placeholder="Password" class="input bg-slate-200 input-sm input-bordered w-full max-w-xs" />
 
 
                             <label class="label">
@@ -129,7 +129,7 @@ const Login = () => {
                         <p>Forgotten password? <button onClick={resetPassword} className="text-red-500">Reset Password</button></p>
                     </form>
                     
-                    <p>New to Computer Point? <Link className='text-secondary' to="/signup">Create new account</Link></p>
+                    <p>New to AI Computer? <Link className='text-secondary' to="/signup">Create new account</Link></p>
 
                     <div class="divider">OR</div>
                     <button onClick={() => signInWithGoogle()}
