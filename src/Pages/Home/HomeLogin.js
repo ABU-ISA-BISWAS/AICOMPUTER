@@ -6,8 +6,13 @@ import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const HomeLogin = () => {
+    useEffect(()=>{
+        Aos.init({duration: 2000});
+    },[]);
   
     const { register, formState: { errors }, handleSubmit, getValues } = useForm();
     const [
@@ -61,7 +66,7 @@ const HomeLogin = () => {
     }
 
     return (
-        <div className=' font-serif flex  h-screen justify-center items-center'>
+        <div data-aos="zoom-in" className=' font-serif flex  h-screen justify-center items-center'>
             
         <div class="card w-72 lg:w-80 m-5 bg-base-100 shadow-xl animate__animated animate__zoomIn">
             <div class="card-body">
